@@ -39,6 +39,16 @@ Get mouse position of plotly graph
 
 Usage :
 ```
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+
+from dash.dependencies import Output, Input
+
+import mydcc
+
+app = dash.Dash()
+
 app.layout = html.Div([
     mydcc.Listener( id = "uuu", aim = 'graph' ),
     dcc.Graph( id = 'graph',
@@ -52,6 +62,9 @@ app.layout = html.Div([
     [Input('uuu', 'data')])
 def myfun(ddd):
     return str(ddd['x']) + ' and ' + str(ddd['y']) 
+
+if __name__ == '__main__':
+    app.run_server()
 ```
 
 # 2. mydcc.Listener_mapbox : 
@@ -77,6 +90,16 @@ Relayout plotly graph
 
 Usage :
 ```
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+
+from dash.dependencies import Output, Input
+
+import mydcc
+
+app = dash.Dash()
+
 app.layout = html.Div([
     mydcc.Relayout( id = "rrr", aim = 'graph' ),
     dcc.Graph( id = 'graph',
@@ -94,6 +117,10 @@ app.layout = html.Div([
     [Input('in', 'value')])
 def myfun(x):
     return {'title':x}
+
+    
+if __name__ == '__main__':
+    app.run_server()   
 ```
 
 # 4. mydcc.Change_trace : 
@@ -101,6 +128,16 @@ Change plotly graph trace (only for graph with one trace )
 
 Usage :
 ```
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+
+from dash.dependencies import Output, Input
+
+import mydcc
+
+app = dash.Dash()
+
 app.layout = html.Div([
     dcc.Graph(
         id = 'graph',    
@@ -155,6 +192,10 @@ def myfun(ddd):
                     opacity = 1
                     )
     return data
+
+    
+if __name__ == '__main__':
+    app.run_server()   
 ```
 
 ## Dash
